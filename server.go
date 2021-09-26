@@ -3,10 +3,16 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
 )
 
+func getTimeString() string {
+	return time.Now().Format(time.RFC3339)
+}
+
 func timeHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello World")
+	currentTime := getTimeString()
+	fmt.Fprintf(w, currentTime)
 }
 
 func main() {
